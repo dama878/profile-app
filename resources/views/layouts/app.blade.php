@@ -61,7 +61,7 @@
                 <div class="progress-container">
                     <ul class="progress-steps">
                         <li class="active">Contact Info</li>
-                        <li>Work Experience</li>
+                        <li class="active">Work Experience</li>
                         <li>Itinerary</li>
                         <li>Comments</li>
                     </ul>
