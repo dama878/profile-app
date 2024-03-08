@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\WorkExperience;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WorkExperienceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,7 @@ Route::get('info',function(){
     return view('profile.info');
 });
 Route::post('update-profile',[ProfileController::class,'updateInfo'])->name('update-profile.updateInfo');
+Route::get('workExp', [WorkExperienceController::class,'index']);
+Route::post('workExp', [WorkExperienceController::class,'store'])->name('workExp.store');
+
+

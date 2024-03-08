@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Profile;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class WorkExperience extends Model
 {
@@ -19,4 +20,7 @@ class WorkExperience extends Model
        'describe',
        'resume'
     ];
+    public function profile(){
+        return $this->belongsTo(Profile::class);
+    }
 }

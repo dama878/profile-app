@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('work_experiences', function (Blueprint $table) {
             $table->id();
             $table->string('company_name')->nullable();
-            $table->string('tile')->nullable();
+            $table->string('title')->nullable();
             $table->string('city')->nullable();
             $table->string('software_usage')->nullable();
             $table->date('start_date')->nullable();
@@ -24,8 +24,10 @@ return new class extends Migration
             $table->boolean('employee_here')->nullable();
             $table->string('describe')->nullable();
             $table->string('resume')->nullable();
+            $table->unsignedBigInteger('profile_id');
+            $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade');
             
-
+            
 
 
             $table->timestamps();
