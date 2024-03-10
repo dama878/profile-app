@@ -28,7 +28,7 @@ class ProfileController extends Controller
         // Update other fields as needed
         
         $data->save();
-        return redirect('profile')->with('success', 'Data updated successfully');
+        return redirect('workExp')->with('success', 'Data updated successfully');
     }
 
 

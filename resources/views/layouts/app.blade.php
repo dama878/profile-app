@@ -16,13 +16,16 @@
             <div class="row">
                 <div class="col-3">
                     <div class="boder_left">
-                        <img src="" alt="abc  ">
-                        <h5><i class="fa fa-check-circle" aria-hidden="true"></i></h5>
-                        <p>dev</p>
+                        <div class="avatar text-center">
+                            <img   src="{{ asset('images/avatar1.webp') }}" alt="abc ">
+    
+                        </div>
+                        <h5 class="text-center">{{ $profile->name }}<i style="color: grey" class="fa fa-check-circle" aria-hidden="true"></i></h5>
+                    <p class="text-center">{{ $profile->role }}</p>
                         <ul class="list-unstyled big_nav">
 
 
-                            <a class="text-decoration-none link" href="">
+                            <a class="text-decoration-none link" href="{{ route('home') }}">
                                 <li class="mt-2 nav"><i class="icon fa-solid fa-house"></i>Home</li>
                             </a>
                             <a class="text-decoration-none link" href="{{ route('profile.index') }}">
@@ -68,7 +71,7 @@
                     </div>
 
                     <div class="row">
-                        <form id="saveForm" method="POST" action="{{ route('workExp.store') }}">
+                        <form id="saveForm" method="POST" action="{{ route('workExp.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form d-flex gap-4 flex-column border border-secondary boder_input mt-2">
                                 <input type="hidden" name="profile_id", value="1">
@@ -163,7 +166,7 @@
                         });
                     });
     </script>
-        </script>
+    
     </body>
 
     </html>

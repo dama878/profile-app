@@ -16,13 +16,16 @@
         <div class="row">
             <div class="col-3">
                 <div class="boder_left">
-                    <img  class="text-center" src="" alt="abc  ">
+                    <div class="avatar text-center">
+                        <img   src="{{ asset('images/avatar1.webp') }}" alt="abc ">
+
+                    </div>
                     <h5 class="text-center">{{ $profile->name }}<i style="color: grey" class="fa fa-check-circle" aria-hidden="true"></i></h5>
                     <p class="text-center">{{ $profile->role }}</p>
                     <ul class="list-unstyled big_nav">
 
 
-                        <a class="text-decoration-none link" href="">
+                        <a class="text-decoration-none link" href="{{ route('home') }}">
                             <li class="mt-2 nav"><i class="icon fa-solid fa-house"></i>Home</li>
                         </a>
                         <a class="text-decoration-none link" href="">
@@ -107,7 +110,7 @@
                 .then(data => {
                     alert(data.message);
                     // Redirect user to another page
-                    window.location.href = '/profile'; // Replace '/redirect-url' with your desired URL
+                    window.location.href = '/workExp'; // Replace '/redirect-url' with your desired URL
                 })
                 .catch(error => {
                     console.error('Error:', error);

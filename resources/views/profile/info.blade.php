@@ -17,15 +17,16 @@
             <div class="col-3">
                 <div class="boder_left">
                     <div class="avatar text-center">
-                        <img   src="{{ asset('images/avatar1.webp') }}" alt="abc ">
+                        <img src="{{ asset('images/avatar1.webp') }}" alt="abc ">
 
                     </div>
-                    <h5 class="text-center">{{ $profile->name }}<i style="color: grey" class="fa fa-check-circle" aria-hidden="true"></i></h5>
+                    <h5 class="text-center">{{ $profile->name }}<i style="color: grey" class="fa fa-check-circle"
+                            aria-hidden="true"></i></h5>
                     <p class="text-center">{{ $profile->role }}</p>
                     <ul class="list-unstyled big_nav">
 
 
-                        <a class="text-decoration-none link" href="">
+                        <a class="text-decoration-none link" href="{{ route('home') }}">
                             <li class="mt-2 nav"><i class="icon fa-solid fa-house"></i>Home</li>
                         </a>
                         <a class="text-decoration-none link" href="">
@@ -57,9 +58,12 @@
             </div>
 
             <div class="col-9">
-                
 
-               <div class="row">
+                <div class="d-flex justify-content-end mt-2">
+                    <a href="{{ route('profile.index') }}"><button class="btn btn-primary">set up</button></a>
+                </div>
+
+                <div class="row">
                     <div class="form d-flex gap-4 flex-column border border-secondary boder_input mt-2 pb-4 pt-4">
                         <div class="d-flex flex-row gap-1">
                             <label for="">Name::</label>
@@ -74,51 +78,58 @@
 
                     </div>
 
-                    
-                        
-                    
+
+
+
                     <div class="">
                         <h3>Work Experience</h3>
-                        @foreach ($workExp as $i )
-                        <div class="d-flex flex-row gap-1">
-                            <label for="">Company Name:</label>
-                            <p class="flex-row">{{ $i->company_name }} </p>
-                        </div>
-                        <div class="d-flex flex-row gap-1">
-                            <label for="">Title:</label>
-                            <p class="flex-row">{{ $i->title }} </p>
-                        </div>
-                        <div class="d-flex flex-row gap-1">
-                            <label for="">City:</label>
-                            <p class="flex-row"> {{  $i->city}}</p>
-                        </div>
-                        <div class="d-flex flex-row gap-1">
-                            <label for="">Software Usage:</label>
-                            <p class="flex-row"> {{ $i->software_usage }}</p>
-                        </div>
-                        <div class="d-flex flex-row gap-1">
-                            <label for="">Start_date:</label>
-                            <p class="flex-row">{{ $i->start_date }} </p>
-                        </div>
-                        <div class="d-flex flex-row gap-1">
-                            <label for="">End_date:</label>
-                            <p class="flex-row">{{ $i->end_date }}</p>
-                        </div>
-                        <div class="d-flex flex-row gap-1">
-                            <label for="">Employee here:</label>
-                            <p class="flex-row">{{ $i->employee_here }} </p>
-                        </div>
-                        <div class="d-flex flex-row gap-1">
-                            <label for="">Describe:</label>
-                            <p class="flex-row">{{ $i->describe }} </p>
-                        </div>
-                        <hr>
+
+                        @foreach ($workExp as $i)
+                            <button><a href="{{ route('workExp.edit', $i->id) }}">Edit</a></button>
+                            <form method="POST" action="{{ route('workExp.destroy', $i->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Delete</button>
+                            </form>
+                            <div class="d-flex flex-row gap-1">
+                                <label for="">Company Name:</label>
+                                <p class="flex-row">{{ $i->company_name }} </p>
+                            </div>
+                            <div class="d-flex flex-row gap-1">
+                                <label for="">Title:</label>
+                                <p class="flex-row">{{ $i->title }} </p>
+                            </div>
+                            <div class="d-flex flex-row gap-1">
+                                <label for="">City:</label>
+                                <p class="flex-row"> {{ $i->city }}</p>
+                            </div>
+                            <div class="d-flex flex-row gap-1">
+                                <label for="">Software Usage:</label>
+                                <p class="flex-row"> {{ $i->software_usage }}</p>
+                            </div>
+                            <div class="d-flex flex-row gap-1">
+                                <label for="">Start_date:</label>
+                                <p class="flex-row">{{ $i->start_date }} </p>
+                            </div>
+                            <div class="d-flex flex-row gap-1">
+                                <label for="">End_date:</label>
+                                <p class="flex-row">{{ $i->end_date }}</p>
+                            </div>
+                            <div class="d-flex flex-row gap-1">
+                                <label for="">Employee here:</label>
+                                <p class="flex-row">{{ $i->employee_here }} </p>
+                            </div>
+                            <div class="d-flex flex-row gap-1">
+                                <label for="">Describe:</label>
+                                <p class="flex-row">{{ $i->describe }} </p>
+                            </div>
+                            <hr>
                         @endforeach
                     </div>
-                    
-                    
+
+
                 </div>
-               
+
 
             </div>
         </div>
