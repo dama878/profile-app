@@ -12,7 +12,7 @@ class Profile extends Model
     protected $fillable = ['name', 'role'];
 
     public function workExperiences(){
-        return $this->hasMany(WorkExperience::class);
+        return $this->hasMany(WorkExperience::class,'profile_id','id');
     }
 }
 

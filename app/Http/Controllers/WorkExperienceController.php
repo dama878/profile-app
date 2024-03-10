@@ -1,32 +1,44 @@
 <?php
 
 namespace App\Http\Controllers;
-
+    
 use Illuminate\Http\Request;
 use App\Models\WorkExperience;
 
-class WorkExperienceController extends Controller
-{
-    function index (){
-      return view('layouts.app');
+  class WorkExperienceController extends Controller
+  {
+      public function index()
+      {
+          return view('layouts.app');
+      }
 
+      public function store(Request $request)
+    {
+        // Validate the incoming request data if needed
+        // $validatedData = $request->validate([...]);
+
+        // Create a new instance of WorkExperience and populate its attributes
+        $workExperience = new WorkExperience();
+        $workExperience->profile_id = $request->input('profile_id');
+        $workExperience->company_name = $request->input('company_name');
+        $workExperience->title = $request->input('title');
+        $workExperience->city = $request->input('city');
+        $workExperience->software_usage = $request->input('software_usage');
+        $workExperience->start_date = $request->input('start_date');
+        $workExperience->end_date = $request->input('end_date');
+        $workExperience->employee_here = $request->input('employee_here', false); // Default to false if not provided
+        $workExperience->describe = $request->input('describe');
+
+        // Handle resume upload if provided
+        if ($request->hasFile('resume')) {
+            $resumePath = $request->file('resume')->store('resumes');
+            $workExperience->resume = $resumePath;
+        }
+
+        // Save the work experience to the database
+        $workExperience->save();
+
+        // Optionally, you can return a response or redirect
+        return response()->json(['message' => 'Work experience created successfully'], 201);
     }
-
-    public function store(Request $request){
-      $workExp = new WorkExperience ;
-      $workExp->profile_id=1;
-      $workExp->company_name = $request->input('company_name');
-      $workExp->title = $request->input('title');
-      $workExp->city = $request->input('city');
-      $workExp->software_usage= $request->input('software_usage');
-      $workExp->start_date = $request->input('start_date');
-      $workExp->end_date = $request->input('end_date');
-      $workExp->employee_here= $request->input('employee_here');
-      $workExp->describe= $request->input('describe');
-      $workExp->resume= $request->input('resume');
-      
-      $workExp->save();
-      return redirect()->back()->with('success', 'Product created successfully!');
-
-    }
-}
+  }

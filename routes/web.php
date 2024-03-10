@@ -16,9 +16,7 @@ use App\Http\Controllers\WorkExperienceController;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.app');
-});
+Route::get('/',[ProfileController::class,'info']);
 
 // Route::get('profile',function () {
 //     return "hello";
@@ -33,4 +31,4 @@ Route::post('update-profile',[ProfileController::class,'updateInfo'])->name('upd
 Route::get('workExp', [WorkExperienceController::class,'index']);
 Route::post('workExp', [WorkExperienceController::class,'store'])->name('workExp.store');
 
-
+Route::get('info',[ProfileController::class,'info']);

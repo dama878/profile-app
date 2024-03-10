@@ -79,3 +79,10 @@
 .boder_input {
   border-radius: 20px;
 }
+
+.avatar img {
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  border-radius: 50%; /* Make the border radius 50% to create a circle */
+  border: 2px solid #fff; /* Optional: Add a border with white color */
+}
