@@ -57,12 +57,10 @@
             </div>
 
             <div class="col-9">
-                <div class="progress-container">
+                <div class="row progress-container">
                     <ul class="progress-steps">
                         <li class="active">Contact Info</li>
                         <li>Work Experience</li>
-                        <li>Itinerary</li>
-                        <li>Comments</li>
                     </ul>
                 </div>
 

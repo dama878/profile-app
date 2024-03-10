@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Models\WorkExperience;
+use Illuminate\Support\Facades\Redirect;
 
   class WorkExperienceController extends Controller
   {
@@ -55,7 +56,8 @@ use App\Models\WorkExperience;
     public function edit($id)
 {
     $workExperience = WorkExperience::findOrFail($id);
-    return view('workExp.edit', compact('workExperience'));
+    $profile = Profile::first();
+    return view('workExp.edit', compact('workExperience','profile'));
 }
 
 public function update(Request $request, $id)
@@ -71,6 +73,7 @@ public function update(Request $request, $id)
         $workExperience->end_date = $request->input('end_date'),
         // Update other attributes similarly
     ]);
+    return Redirect::route('home');
     // Redirect back or to another page
 }
 

@@ -59,7 +59,7 @@
 
             <div class="col-9">
 
-                <div class="d-flex justify-content-end mt-2">
+                <div class="row d-flex justify-content-end mt-2">
                     <a href="{{ route('profile.index') }}"><button class="btn btn-primary">set up</button></a>
                 </div>
 
@@ -82,15 +82,23 @@
 
 
                     <div class="">
-                        <h3>Work Experience</h3>
+                        <div class="row">
+                            
+                            <h3 class="col-6">Work Experience</h3>
+                            <a class="col 6 text-end" href="{{ route('workExp') }}"><button class="btn btn-primary">Add Work
+                                    Experience</button></a>
+                        </div>
 
                         @foreach ($workExp as $i)
-                            <button><a href="{{ route('workExp.edit', $i->id) }}">Edit</a></button>
-                            <form method="POST" action="{{ route('workExp.destroy', $i->id) }}">
+                            <div class="row">
+                                <button class=" col-1"><a href="{{ route('workExp.edit', $i->id) }}">Edit</a></button>
+                            <form class="col" method="POST" action="{{ route('workExp.destroy', $i->id) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit">Delete</button>
                             </form>
+                            </div>
+                            
                             <div class="d-flex flex-row gap-1">
                                 <label for="">Company Name:</label>
                                 <p class="flex-row">{{ $i->company_name }} </p>

@@ -28,7 +28,7 @@ Route::get('info',function(){
     return view('profile.info');
 });
 Route::post('update-profile',[ProfileController::class,'updateInfo'])->name('update-profile.updateInfo');
-Route::get('workExp', [WorkExperienceController::class,'index']);
+Route::get('workExp', [WorkExperienceController::class,'index'])->name('workExp');
 Route::post('workExp', [WorkExperienceController::class,'store'])->name('workExp.store');
 Route::get('/workExp/{id}/edit', [WorkExperienceController::class,'edit'])->name('workExp.edit');
 Route::put('/workExp/{id}', [WorkExperienceController::class,'update'])->name('workExp.update');

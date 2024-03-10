@@ -57,16 +57,14 @@
                 </div>
 
                 <div class="col-9">
-                    <div class="title">
+                    <div class="row title">
                         <h3>WORK EXPERIENCE</h3>
                         <p>Summarize your career journey. highlighting key roles and achivements</p>
                     </div>
-                    <div class="progress-container">
+                    <div class="row progress-container">
                         <ul class="progress-steps">
                             <li class="active">Contact Info</li>
                             <li class="active">Work Experience</li>
-                            <li>Itinerary</li>
-                            <li>Comments</li>
                         </ul>
                     </div>
 
